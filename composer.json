@@ -1,0 +1,49 @@
+{
+    "name": "fieldwork/all-the-meta",
+    "description": "Manage social and SEO meta tag content.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "all the meta"
+    ],
+    "support": {
+        "docs": "https://github.com/EMT/all-the-meta/blob/master/README.md",
+        "issues": "https://github.com/EMT/all-the-meta/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fieldwork",
+            "homepage": "https://madebyfieldwork.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "fieldwork\\allthemeta\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "All The Meta",
+        "handle": "all-the-meta",
+        "developer": "Fieldwork",
+        "developerUrl": "https://madebyfieldwork.com",
+        "documentationUrl": "https://github.com/EMT/all-the-meta/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/EMT/all-the-meta/master/CHANGELOG.md",
+        "components": {
+            "allTheMetaService": "fieldwork\\allthemeta\\services\\AllTheMetaService"
+        },
+        "class": "fieldwork\\allthemeta\\AllTheMeta"
+    }
+}
