@@ -17,6 +17,7 @@ use Craft;
 use craft\base\Plugin;
 use craft\events\DefineGqlTypeFieldsEvent;
 use craft\gql\TypeManager;
+use craft\gql\TypeLoader;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ResolveInfo;
@@ -91,14 +92,23 @@ class AllTheMeta extends Plugin
             function (DefineGqlTypeFieldsEvent $event) {
                 // Add meta tag fields for entries as specified in settings
                 if ($event->typeName == 'EntryInterface') {
+                    $metaTagTypeName = 'MetaTag';
+
                     $metaTagType = new ObjectType([
-                        'name' => 'MetaTag',
+                        'name' => $metaTagTypeName,
                         'description' => 'A meta tag.',
                         'fields' => [
                             'name' => Type::string(),
                             'value' => Type::string(),
                         ],
                     ]);
+
+                    TypeLoader::registerType(
+                        $metaTagTypeName,
+                        function () use ($metaTagType) {
+                            return $metaTagType ;
+                        }
+                    );
 
                     $event->fields['metaTags'] = [
                         'name' => 'metaTags',
