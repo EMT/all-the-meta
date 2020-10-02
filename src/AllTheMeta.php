@@ -91,8 +91,8 @@ class AllTheMeta extends Plugin
             TypeManager::EVENT_DEFINE_GQL_TYPE_FIELDS,
             function (DefineGqlTypeFieldsEvent $event) {
                 // Add meta tag fields for entries as specified in settings
-                if ($event->typeName == 'EntryInterface') {
-                    $metaTagTypeName = 'MetaTag';
+                if ($event->typeName == 'EntryInterface' || $event->typeName == 'CategoryInterface') {
+                    $metaTagTypeName = sprintf('MetaTag%s', substr($event->typeName, 0, 3));
 
                     $metaTagType = new ObjectType([
                         'name' => $metaTagTypeName,
