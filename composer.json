@@ -2,7 +2,7 @@
     "name": "fieldwork/all-the-meta",
     "description": "Manage social and SEO meta tag content.",
     "type": "craft-plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "craft",
         "cms",
